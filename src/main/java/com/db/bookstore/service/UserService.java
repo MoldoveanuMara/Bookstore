@@ -12,7 +12,9 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    public void setRole(User user) { user.setRole("client"); }
     public void insertUser(User user){
+
         userRepository.save(user);
     }
     public User findByUsernameOrEmailAndPassword(User user) throws Exception {
@@ -37,5 +39,7 @@ public class UserService {
     }
 
 
-
+    public User getUserById(int userId) {
+        return userRepository.getReferenceById(userId);
+    }
 }
